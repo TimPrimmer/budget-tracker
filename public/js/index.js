@@ -129,6 +129,9 @@ function sendTransaction(isAdding) {
   populateTable();
   populateTotal();
 
+  // set our local storage so it updates even if we're offline
+  localStorage.setItem("transactions", JSON.stringify(transactions));
+
   // also send to server
   fetch("/api/transaction", {
     method: "POST",
